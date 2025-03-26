@@ -1,0 +1,7 @@
+#Debian12/Ubuntu24.04 Install
+apt-get update && apt-get -y install apt-transport-https ca-certificates wget curl
+curl -fsSL https://repo.pathvector.io/pgp.asc | tee /usr/share/keyrings/pathvector.asc > /dev/null
+echo "deb [signed-by=/usr/share/keyrings/pathvector.asc] https://repo.pathvector.io/apt/ stable main" > /etc/apt/sources.list.d/pathvector.list
+curl -fsSL https://pkg.labs.nic.cz/gpg | tee /usr/share/keyrings/cznic-labs-pkg.gpg > /dev/null
+echo "deb [signed-by=/usr/share/keyrings/cznic-labs-pkg.gpg] https://pkg.labs.nic.cz/bird3 bookworm main" > /etc/apt/sources.list.d/cznic-labs-bird3.list
+apt-get update && apt-get install -y bird3 bird3-doc pathvector
